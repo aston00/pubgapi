@@ -1,0 +1,14 @@
+<section>
+    <div>
+        <div>
+            <label for=""></label>
+            <input ng-model="$ctrl.searchPlayer" type="text">
+            <button ng-click="$ctrl.search()">Search</button>
+            <select ng-model="$ctrl.region">
+                <option ng-repeat="region in $ctrl.regions"  value={{region}}>{{region}}</option>
+            </select>
+            <select ng-if="$ctrl.matches" ng-model="$ctrl.match" ng-options="match as match.id for match in $ctrl.matches" ng-change="$ctrl.getMatch(match)" >
+            </select>
+        </div>
+    </div>
+</section>
