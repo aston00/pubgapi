@@ -7,8 +7,21 @@
             <select ng-model="$ctrl.region">
                 <option ng-repeat="region in $ctrl.regions"  value={{region}}>{{region}}</option>
             </select>
-            <select ng-if="$ctrl.matches" ng-model="$ctrl.match" ng-options="match as match.id for match in $ctrl.matches" ng-change="$ctrl.getMatch(match)" >
+            <!-- <select ng-if="$ctrl.matches" ng-model="$ctrl.match" ng-options="match as match.id for match in $ctrl.matches" ng-change="$ctrl.getMatch(match.id)" >
+            </select> -->
+            <select ng-if="$ctrl.matches" ng-model="$ctrl.match" ng-change="$ctrl.getMatch($ctrl.match)" >
+                    <option ng-repeat="match in $ctrl.matches"  value={{match.id}}>{{match.id}}</option>
             </select>
+            <ul ng-if="$ctrl.match.data.included">
+                <li ng-repeat='player in $ctrl.match.data.included | playerFilter '>
+                    <span>{{player.attributes.stats.winPlace}}</span>
+                    <span>{{player.attributes.stats.name}}</span>
+                    <span>{{' Kills ' + player.attributes.stats.kills}}</span>
+                    <span>{{' Revived: ' + player.attributes.stats.DBNOs}}</span>
+                    <span>{{' Damage dealt: ' + player.attributes.stats.damageDealt}}</span>
+                   
+                </li>
+            </ul>
         </div>
     </div>
 </section>

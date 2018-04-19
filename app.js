@@ -12,9 +12,12 @@ require('./services/match-data-service');
 require('./services/player-data-service');
 require('./services/regions-service');
 
-
+require('./filters/players.filter');
 
 require('./components/player-section/player-section.component');
 require('./components/nav-bar/nav-bar.component');
 require('./components/player-section/player-section.component');
 require('./components/player-section/player-input/player-input.component');
+require('./components/player-form/player-form.component');
+require('./components/login/login');
+require('./components/welcome/welcome.component');

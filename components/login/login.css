@@ -1,7 +1,7 @@
 * {box-sizing: border-box}
 
 /* style the container */
-.container {
+.login-container {
   position: relative;
   border-radius: 5px;
   background-color: #f2f2f2;
@@ -10,7 +10,7 @@
 
 /* style inputs and link buttons */
 input,
-.btn {
+.login-btn {
   width: 100%;
   padding: 12px;
   border: none;
@@ -24,22 +24,22 @@ input,
 }
 
 input:hover,
-.btn:hover {
+.login-btn:hover {
   opacity: 1;
 }
 
 /* add appropriate colors to fb, twitter and google buttons */
-.fb {
+.login-fb {
   background-color: #3B5998;
   color: white;
 }
 
-.twitter {
+.login-twitter {
   background-color: #55ACEE;
   color: white;
 }
 
-.google {
+.login-google {
   background-color: #dd4b39;
   color: white;
 }
@@ -56,7 +56,7 @@ input[type=submit]:hover {
 }
 
 /* Two-column layout */
-.col {
+.login-col {
   float: left;
   width: 50%;
   margin: auto;
@@ -65,14 +65,14 @@ input[type=submit]:hover {
 }
 
 /* Clear floats after the columns */
-.row:after {
+.login-row:after {
   content: "";
   display: table;
   clear: both;
 }
 
 /* vertical line */
-.vl {
+.login-vl {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
@@ -81,7 +81,7 @@ input[type=submit]:hover {
 }
 
 /* text inside the vertical line */
-.inner {
+.login-inner {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -92,12 +92,12 @@ input[type=submit]:hover {
 }
 
 /* hide some text on medium and large screens */
-.hide-md-lg {
+.login-hide-md-lg {
   display: none;
 }
 
 /* bottom container */
-.bottom-container {
+.login-bottom-container {
   text-align: center;
   background-color: #666;
   border-radius: 0px 0px 4px 4px;
@@ -105,16 +105,16 @@ input[type=submit]:hover {
 
 /* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 650px) {
-  .col {
+  .login-col {
     width: 100%;
     margin-top: 0;
   }
   /* hide the vertical line */
-  .vl {
+  .login-vl {
     display: none;
   }
   /* show the hidden text on small screens */
-  .hide-md-lg {
+  .login-hide-md-lg {
     display: block;
     text-align: center;
   }

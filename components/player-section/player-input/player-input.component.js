@@ -1,13 +1,14 @@
 angular.module('pubgApp')
     .component('appPlayerInput', {
         template: require('./player-input.html'),
-        controller: ['PlayerDataService', 'MatchDataService', 'RegionsService' , function(PlayerDataService, MatchDataService, RegionsService){
+        controller: ['$scope', 'PlayerDataService', 'MatchDataService', 'RegionsService' , function($scope, PlayerDataService, MatchDataService, RegionsService){
             let ctrl = this;
-
             this.$onInit = function(){
+                ctrl.region = "";
                 RegionsService.allRegions().then(data => {
                     ctrl.regions = data;
                 })
+                ctrl.matches = "";
 
                 
             }
@@ -25,7 +26,9 @@ angular.module('pubgApp')
             }
 
             ctrl.getMatch = function(id){
+                console.log(id);
                 MatchDataService.getMatchData(id, ctrl.region).then(data => {
+                    ctrl.match = data;
                     console.log(data);
                 })
             }
