@@ -1,27 +1,73 @@
-<section>
-    <div>
-        <div>
-            <label for=""></label>
-            <input ng-model="$ctrl.searchPlayer" type="text">
-            <button ng-click="$ctrl.search()">Search</button>
-            <select ng-model="$ctrl.region">
-                <option ng-repeat="region in $ctrl.regions"  value={{region}}>{{region}}</option>
-            </select>
-            <!-- <select ng-if="$ctrl.matches" ng-model="$ctrl.match" ng-options="match as match.id for match in $ctrl.matches" ng-change="$ctrl.getMatch(match.id)" >
-            </select> -->
-            <select ng-if="$ctrl.matches" ng-model="$ctrl.match" ng-change="$ctrl.getMatch($ctrl.match)" >
-                    <option ng-repeat="match in $ctrl.matches"  value={{match.id}}>{{match.id}}</option>
-            </select>
-            <ul ng-if="$ctrl.match.data.included">
+<section class="player-section">
+    <div class="container">
+        <div class="player-container">
+            <div class="player-form-container">
+                <div class="player-input-name-section">
+                    <label class="select-label" for="player-name-input">Player name:</label>
+                    <input id="player-name-input" class="player-name-input" ng-model="$ctrl.searchPlayer" type="text" placeholder="Enter player name here ...">
+                </div>
+                <div class="player-select-section">
+                    <div class="player-region-container">
+                        <h2 class="select-label">Region: </h2>
+                        <select class="player-region-select" ng-model="$ctrl.region" placeholder="region">
+                            <option class="player-region-select-option" ng-repeat="region in $ctrl.regions" value={{region}}>{{region}}</option>
+                        </select>
+                    </div>
+
+                    <div class="player-match-container" ng-if="$ctrl.matches">
+                        <h2 class="select-label">Match: </h2>
+                        <select class="player-match-select" ng-model="$ctrl.match" ng-change="$ctrl.getMatch($ctrl.match)">
+                            <option class="player-match-select-option" ng-repeat="match in $ctrl.matches" value={{match.id}}>{{match.id}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="player-search-user-container">
+                <button class="player-search-user-button" ng-click="$ctrl.search()">Search</button>
+            </div>
+
+            <div ng-if="$ctrl.match" class="match-info">
+                <span>Mode: </span>
+                <span>{{$ctrl.match.data.attributes.gameMode}}</span>
+                <span>&nbsp;{{$ctrl.match.data.attributes.mapName}}</span>
+                <span>Player acount: </span>
+                <span>{{filteredArray.length}}</span>
+            </div>
+
+            <table border="1" class="player-table" ng-if="$ctrl.match">
+                <thead>
+                    <tr class="player-table-row">
+                        <th>#</th>
+                        <th>name</th>
+                        <th>winplace</th>
+                        <th>kills</th>
+                        <th>killedby</th>
+                        <th>damagedone</th>
+                        <th>assists</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat='player in filteredArray =( $ctrl.match.data.included | playerFilter) '>
+                        <td>{{$index}}</td>
+                        <td>{{player.attributes.stats.name}}</td>
+                        <td>{{player.attributes.stats.winPlace}}</td>
+                        <td>{{player.attributes.stats.kills}}</td>
+                        <td>{{player.attributes.stats.deathType}}</td>
+                        <td>{{player.attributes.stats.damageDealt | parseToIntFilter}}</td>
+                        <td>{{player.attributes.stats.assists}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <ul >
                 <li ng-repeat='player in $ctrl.match.data.included | playerFilter '>
                     <span>{{player.attributes.stats.winPlace}}</span>
                     <span>{{player.attributes.stats.name}}</span>
                     <span>{{' Kills ' + player.attributes.stats.kills}}</span>
                     <span>{{' Revived: ' + player.attributes.stats.DBNOs}}</span>
                     <span>{{' Damage dealt: ' + player.attributes.stats.damageDealt}}</span>
-                   
+
                 </li>
-            </ul>
+            </ul> -->
         </div>
     </div>
 </section>

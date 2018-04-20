@@ -34,3 +34,5 @@ angular.module('pubgApp')
             }
         }]
     })
+
+require('./player-input.css');
