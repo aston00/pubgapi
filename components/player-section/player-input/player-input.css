@@ -1,10 +1,19 @@
 .player-section {
     background-color: #eee;
+    padding-top: .2rem;
+    padding-bottom: 3.5rem;
 }
+
 
 .container {
     width: 80%;
     margin: auto;
+}
+
+.welcome-msg {
+    font-size: 3rem;
+    color: #333333;
+    text-align: center;
 }
 
 .player-container {
@@ -14,8 +23,9 @@
 .player-form-container {
     display: flex;
     justify-content: flex-start;
-    
+    align-items: center;
     flex-direction: column;
+    margin-top: 3rem;
 }
 
 .player-input-name-section {
@@ -59,7 +69,9 @@
 }
 
 .player-search-user-container {
-    display:flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -96,23 +108,42 @@
     flex-direction: column;
 } 
 
-.match-info {
-    display: flex;
-    width: 50%;
-    margin: auto;
-}
-
-.match-info-mapName{
-    font-size: 3rem;
-    display: block;
-    align-content: center;
-}
-
 .match-info-container {
     width: 100%;
     display: block;
-    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 3rem 0 4rem 0;
 }
+
+.match-info {
+    display: flex;
+    width: 70%;
+    list-style: none;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.match-info > li {
+    flex-basis: 30%;
+    height: 5rem;
+    border-bottom: 1px solid lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.match-info-mapName{
+    font-size: 4rem;
+    letter-spacing: .2rem;
+    display: block;
+    align-content: center;
+    margin: .5rem 0 1rem 0;
+}
+
+
 
 .match-info-mode {
     font-size: 2.5rem;
@@ -138,6 +169,11 @@
 .player-table {
     width: 100%;
     font-size: 2rem;
+    border-collapse: collapse;
+}
+.player-table td, .player-table th {
+    border: 2px solid #33BFEB;
+    padding: .3rem 0;
 }
 
 .player-table-row th:nth-child(1) {
@@ -147,6 +183,7 @@
 
 .player-table-row th:nth-child(2) {
     width: 20%;
+    padding: .3rem 0;
 }
 .player-table-row th:nth-child(3) {
     width: 5%;
@@ -164,15 +201,16 @@
     width: 8%;
 }
 .player-table-row th:nth-child(8) {
-    width: 10%;
+    width: 15%;
 }
 .player-table-row th:nth-child(9) {
     width: 8%;
 }
 .player-table-row th:nth-child(10) {
-    width: 14%;
+    width: 9%;
 }
 
 .player-table tbody tr > td:not(:nth-of-type(2)) {
     text-align: center;
+
 }

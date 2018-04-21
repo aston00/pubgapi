@@ -4,9 +4,14 @@ angular.module('pubgApp')
             if(!item){
                 return;
             }
-            let splitted = item.split('-');
-            splitted.pop();
-            return splitted.join('');
+            if(item.indexOf('-') != -1){
+                let splitted = item.split('-');
+                splitted.pop();
+                return splitted.join('');
+            } else {
+                return item.slice(0, item.length -3);
+            }
+            
 
         }
     });

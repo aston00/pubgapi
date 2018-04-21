@@ -1,6 +1,9 @@
 <section class="player-section">
     <div class="container">
         <div class="player-container">
+            <div class="welcome-msg">
+                <h2>Welcome to PUBG History API</h2>
+            </div>
             <div class="player-form-container">
                 <div class="player-input-name-section">
                     <label class="select-label" for="player-name-input">Player name:</label>
@@ -17,7 +20,7 @@
                     <div class="player-match-container" ng-if="$ctrl.matches">
                         <h2 class="select-label">Match: </h2>
                         <select class="player-match-select" ng-model="$ctrl.match" ng-change="$ctrl.getMatch($ctrl.match)">
-                            <option class="player-match-select-option" ng-repeat="match in $ctrl.matches" value={{match.id}}>{{match.id}}</option>
+                            <option class="player-match-select-option" ng-repeat="match in $ctrl.matches" value={{match.id}}>{{$index + 1}} - {{match.id}}</option>
                         </select>
                     </div>
                 </div>
@@ -31,6 +34,7 @@
             <div ng-if="$ctrl.match.data.data.attributes" class="match-info-container">
 
                 <div class="match-info-mapName">{{$ctrl.match.data.data.attributes.mapName | mapFilter}}</div>
+                <div class="match-info-played">{{$ctrl.match.data.data.attributes.createdAt | date:'medium' }}</div>
 
                 <ul class="match-info">
                     <li class="match-info-mode">
@@ -40,28 +44,25 @@
                         <div>Match type: {{$ctrl.match.data.data.attributes.gameMode | matchTypeFilter}}</div>
                     </li>
                     <li class="match-info-playerCount">
-                        <div>Player count: {{viewData.filteredArray.length}}</div>
-                    </li>
-                    <li class="match-info-played">
-                        <div>Played at : {{$ctrl.match.data.data.attributes.createdAt | date:'medium' }}</div>
+                        <div>Participants: {{viewData.filteredArray.length}}</div>
                     </li>
                 </ul>
             </div>
 
-            <table border="1" class="player-table" ng-if="$ctrl.match">
+            <table border="1" class="player-table" ng-if="$ctrl.match.data.included">
                 <thead>
                     <tr class="player-table-row">
 
                         <th>#</th>
-                        <th>name</th>
-                        <th>winplace</th>
-                        <th>kills</th>
-                        <th>Knocked times</th>
-                        <th>damagedone</th>
-                        <th>assists</th>
+                        <th>Player</th>
+                        <th>Place</th>
+                        <th>Kills</th>
+                        <th>Knocked Times</th>
+                        <th>Damage Dealt</th>
+                        <th>Assists</th>
                         <th>Healed</th>
-                        <th>revives</th>
-                        <th>longest kill</th>
+                        <th>Revives</th>
+                        <th>Longest Kill</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -72,9 +73,9 @@
                         <td>{{player.attributes.stats.winPlace}}</td>
                         <td>{{player.attributes.stats.kills}}({{player.attributes.stats.headshotKills}}head)</td>
                         <td>{{player.attributes.stats.DBNOs}}</td>
-                        <td>{{player.attributes.stats.damageDealt | parseToIntFilter}} damage</td>
+                        <td>{{player.attributes.stats.damageDealt | parseToIntFilter}} points</td>
                         <td>{{player.attributes.stats.assists}}</td>
-                        <td>{{player.attributes.stats.boosts}}boost {{player.attributes.stats.heals}}heal</td>
+                        <td>{{player.attributes.stats.boosts}}boosts {{player.attributes.stats.heals}}heals</td>
                         <td>{{player.attributes.stats.revives}} revives</td>
                         <td>{{player.attributes.stats.longestKill}}m</td>
                     </tr>
