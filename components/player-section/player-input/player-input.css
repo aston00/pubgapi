@@ -64,6 +64,11 @@
 
 
 
+
+
+
+
+
 .player-search-user-button {
     display: block;
     font-size: 2rem;
@@ -91,30 +96,83 @@
     flex-direction: column;
 } 
 
+.match-info {
+    display: flex;
+    width: 50%;
+    margin: auto;
+}
+
+.match-info-mapName{
+    font-size: 3rem;
+    display: block;
+    align-content: center;
+}
+
+.match-info-container {
+    width: 100%;
+    display: block;
+    border: 1px solid #ccc;
+}
+
+.match-info-mode {
+    font-size: 2.5rem;
+}
+
+.match-info-type{
+    font-size: 2.5rem;
+}
+
+.match-info-playerCount{
+    font-size: 2.5rem;
+}
+.match-info-played{
+    font-size: 2.5rem;
+}
+
+
+
+
+
+
+
 .player-table {
     width: 100%;
     font-size: 2rem;
 }
 
-.player-table-row:nth-child(1) {
+.player-table-row th:nth-child(1) {
     width: 5%;
+    
 }
 
-.player-table-row:nth-child(2) {
-    width: 45%;
+.player-table-row th:nth-child(2) {
+    width: 20%;
 }
-.player-table-row:nth-child(3) {
+.player-table-row th:nth-child(3) {
+    width: 5%;
+}
+.player-table-row th:nth-child(4) {
     width: 10%;
 }
-.player-table-row:nth-child(4) {
+.player-table-row th:nth-child(5) {
     width: 10%;
 }
-.player-table-row:nth-child(5) {
+.player-table-row th:nth-child(6) {
     width: 10%;
 }
-.player-table-row:nth-child(6) {
+.player-table-row th:nth-child(7) {
+    width: 8%;
+}
+.player-table-row th:nth-child(8) {
     width: 10%;
 }
-.player-table-row:nth-child(7) {
-    width: 10%;
+.player-table-row th:nth-child(9) {
+    width: 8%;
+}
+.player-table-row th:nth-child(10) {
+    width: 14%;
+}
+
+.player-table tbody tr > td:not(:nth-of-type(2)) {
+    text-align: center;
 }

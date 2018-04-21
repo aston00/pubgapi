@@ -14,6 +14,9 @@ require('./services/regions-service');
 
 require('./filters/players.filter');
 require('./filters/parseToInt.filter');
+require('./filters/mode.filter');
+require('./filters/matchType.filter');
+require('./filters/map.filter');
 
 require('./components/player-section/player-section.component');
 require('./components/nav-bar/nav-bar.component');

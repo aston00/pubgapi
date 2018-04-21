@@ -24,40 +24,64 @@
             </div>
             <div class="player-search-user-container">
                 <button class="player-search-user-button" ng-click="$ctrl.search()">Search</button>
+
             </div>
 
-            <div ng-if="$ctrl.match" class="match-info">
-                <span>Mode: </span>
-                <span>{{$ctrl.match.data.attributes.gameMode}}</span>
-                <span>&nbsp;{{$ctrl.match.data.attributes.mapName}}</span>
-                <span>Player acount: </span>
-                <span>{{filteredArray.length}}</span>
+
+            <div ng-if="$ctrl.match.data.data.attributes" class="match-info-container">
+
+                <div class="match-info-mapName">{{$ctrl.match.data.data.attributes.mapName | mapFilter}}</div>
+
+                <ul class="match-info">
+                    <li class="match-info-mode">
+                        <div>Mode: {{$ctrl.match.data.data.attributes.gameMode | modeFilter}}</div>
+                    </li>
+                    <li class="match-info-type">
+                        <div>Match type: {{$ctrl.match.data.data.attributes.gameMode | matchTypeFilter}}</div>
+                    </li>
+                    <li class="match-info-playerCount">
+                        <div>Player count: {{viewData.filteredArray.length}}</div>
+                    </li>
+                    <li class="match-info-played">
+                        <div>Played at : {{$ctrl.match.data.data.attributes.createdAt | date:'medium' }}</div>
+                    </li>
+                </ul>
             </div>
 
             <table border="1" class="player-table" ng-if="$ctrl.match">
                 <thead>
                     <tr class="player-table-row">
+
                         <th>#</th>
                         <th>name</th>
                         <th>winplace</th>
                         <th>kills</th>
-                        <th>killedby</th>
+                        <th>Knocked times</th>
                         <th>damagedone</th>
                         <th>assists</th>
+                        <th>Healed</th>
+                        <th>revives</th>
+                        <th>longest kill</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat='player in filteredArray =( $ctrl.match.data.included | playerFilter) '>
-                        <td>{{$index}}</td>
+                    <tr ng-repeat='player in (viewData.filteredArray = ($ctrl.match.data.included | playerFilter ))'>
+
+                        <td>{{$index + 1}}</td>
                         <td>{{player.attributes.stats.name}}</td>
                         <td>{{player.attributes.stats.winPlace}}</td>
-                        <td>{{player.attributes.stats.kills}}</td>
-                        <td>{{player.attributes.stats.deathType}}</td>
-                        <td>{{player.attributes.stats.damageDealt | parseToIntFilter}}</td>
+                        <td>{{player.attributes.stats.kills}}({{player.attributes.stats.headshotKills}}head)</td>
+                        <td>{{player.attributes.stats.DBNOs}}</td>
+                        <td>{{player.attributes.stats.damageDealt | parseToIntFilter}} damage</td>
                         <td>{{player.attributes.stats.assists}}</td>
+                        <td>{{player.attributes.stats.boosts}}boost {{player.attributes.stats.heals}}heal</td>
+                        <td>{{player.attributes.stats.revives}} revives</td>
+                        <td>{{player.attributes.stats.longestKill}}m</td>
                     </tr>
                 </tbody>
             </table>
+
+
             <!-- <ul >
                 <li ng-repeat='player in $ctrl.match.data.included | playerFilter '>
                     <span>{{player.attributes.stats.winPlace}}</span>
