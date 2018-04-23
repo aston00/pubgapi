@@ -3,7 +3,11 @@
     margin: 0;
     padding:0;
 }
-
+body {
+    font-family: 'Athiti', sans-serif;
+    background-color: #fafafa;
+}
 html {
+    
     font-size: 62.5%;
 }

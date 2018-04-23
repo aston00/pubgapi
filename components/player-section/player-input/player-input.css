@@ -1,6 +1,6 @@
 .player-section {
-    background-color: #eee;
-    padding-top: .2rem;
+    
+    padding-top: 3.2rem;
     padding-bottom: 3.5rem;
 }
 
@@ -11,8 +11,8 @@
 }
 
 .welcome-msg {
-    font-size: 3rem;
-    color: #333333;
+    font-size: 4.2rem;
+    color: #1E90FF;
     text-align: center;
 }
 
@@ -25,7 +25,8 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    margin-top: 3rem;
+    margin-top: 7rem;
+    margin-bottom: 2rem;
 }
 
 .player-input-name-section {
@@ -34,23 +35,42 @@
 }
 
 .select-label {
-    font-size: 2rem;
-    color: #333333;
+    font-size: 1.6rem;
+    color: #10b295;
     display: block;
+    font-weight: 600;
+    margin-bottom: .5rem;
 }
 
 .player-name-input {
     font-size: 2rem;
     height: 3rem;
     width: 100%;
+    border: none;
+    border-bottom: 2px solid #10b295;
+    background-color: inherit;
+    color: #333333;
+    font-style: italic;
+    transition: letter-spacing .2s;
 }
+
+.player-name-input:focus {
+    outline: none;
+    letter-spacing: .1rem;
+    font-size: 2.2rem;
+}
+
+
 
 .player-region-select {
     height: 3rem;
     display: block;
-
+    border: 1px solid #10b295;
     width: 100%;
     font-size: 2rem;
+    outline: none;
+    border-radius: 5px;
+    color: #10b295;
 }
 
 .player-region-select-option {
@@ -58,10 +78,14 @@
 }
 
 .player-match-select {
-   height: 3rem;
-   width: 100%;
-   display: block;
-   font-size: 2rem
+    height: 3rem;
+    display: block;
+    border: 1px solid #10b295;
+    width: 100%;
+    font-size: 2rem;
+    outline: none;
+    border-radius: 5px;
+   color: #10b295;
 }
 
 .player-match-select-option {
@@ -86,6 +110,18 @@
     font-size: 2rem;
     padding: .5rem;
     flex-basis: 50%;
+    color: #fafafa;
+    background-color: #10b295;
+    border: 1px solid #1E90FF;
+    border-radius: 10px;
+    outline: none;
+    transition: all .1s;
+}
+
+.player-search-user-button:active {
+    background-color: #1E90FF;
+    letter-spacing: .1rem;
+
 }
 
 
@@ -114,7 +150,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 3rem 0 4rem 0;
+    padding: 5rem 0 6rem 0;
 }
 
 .match-info {
@@ -129,15 +165,18 @@
 .match-info > li {
     flex-basis: 30%;
     height: 5rem;
-    border-bottom: 1px solid lightblue;
+    border-bottom: 1px solid #10b295;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #1E90FF;
 }
 
 .match-info-mapName{
+    color: #1E90FF;
     font-size: 4rem;
     letter-spacing: .2rem;
+    border-bottom: #10b295;
     display: block;
     align-content: center;
     margin: .5rem 0 1rem 0;
@@ -158,6 +197,8 @@
 }
 .match-info-played{
     font-size: 2.5rem;
+    color: #1E90FF;
+    border-bottom: 1px solid #10b295;
 }
 
 
@@ -170,6 +211,13 @@
     width: 100%;
     font-size: 2rem;
     border-collapse: collapse;
+}
+
+.player-table th  {
+    border: 2px solid #33BFEB;
+    padding: .3rem 0;
+    color: #fafafa;
+    background-color: #1E90FF;
 }
 .player-table td, .player-table th {
     border: 2px solid #33BFEB;
@@ -210,7 +258,21 @@
     width: 9%;
 }
 
+.player-table tbody tr > td:nth-of-type(2){
+    font-weight: 600;
+    padding-left: 1rem;
+    color: #1E90FF;
+}
+
 .player-table tbody tr > td:not(:nth-of-type(2)) {
     text-align: center;
+    color: #1E90FF;
+}
 
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
 }

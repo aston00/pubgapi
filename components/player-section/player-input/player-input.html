@@ -7,7 +7,7 @@
             <div class="player-form-container">
                 <div class="player-input-name-section">
                     <label class="select-label" for="player-name-input">Player name:</label>
-                    <input id="player-name-input" class="player-name-input" ng-model="$ctrl.searchPlayer" type="text" placeholder="Enter player name here ...">
+                    <input autocomplete="on" id="player-name-input" class="player-name-input" ng-model="$ctrl.searchPlayer" type="text" placeholder="Enter player name here ...">
                 </div>
                 <div class="player-select-section">
                     <div class="player-region-container">
@@ -75,7 +75,7 @@
                         <td>{{player.attributes.stats.DBNOs}}</td>
                         <td>{{player.attributes.stats.damageDealt | parseToIntFilter}} points</td>
                         <td>{{player.attributes.stats.assists}}</td>
-                        <td>{{player.attributes.stats.boosts}}boosts {{player.attributes.stats.heals}}heals</td>
+                        <td>{{player.attributes.stats.boosts}}boosts - {{player.attributes.stats.heals}}heals</td>
                         <td>{{player.attributes.stats.revives}} revives</td>
                         <td>{{player.attributes.stats.longestKill}}m</td>
                     </tr>
