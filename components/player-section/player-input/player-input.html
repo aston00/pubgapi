@@ -6,8 +6,9 @@
             </div>
             <div class="player-form-container">
                 <div class="player-input-name-section">
+                   
+                    <input autocomplete="on" id="player-name-input" class="player-name-input" ng-model="$ctrl.searchPlayer" type="text" placeholder="Player ...">
                     <label class="select-label" for="player-name-input">Player name:</label>
-                    <input autocomplete="on" id="player-name-input" class="player-name-input" ng-model="$ctrl.searchPlayer" type="text" placeholder="Enter player name here ...">
                 </div>
                 <div class="player-select-section">
                     <div class="player-region-container">
@@ -30,7 +31,7 @@
 
             </div>
 
-
+            
             <div ng-if="$ctrl.match.data.data.attributes" class="match-info-container">
 
                 <div class="match-info-mapName">{{$ctrl.match.data.data.attributes.mapName | mapFilter}}</div>
@@ -47,6 +48,10 @@
                         <div>Participants: {{viewData.filteredArray.length}}</div>
                     </li>
                 </ul>
+            </div>
+
+            <div class="filter-container" ng-if="$ctrl.match.data.included">
+                <input placeholder="Filter value here ..." id="filter-input" class="filter-input" type="text" ng-model="$ctrl.filterValue">
             </div>
 
             <table border="1" class="player-table" ng-if="$ctrl.match.data.included">
@@ -66,14 +71,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat='player in (viewData.filteredArray = ($ctrl.match.data.included | playerFilter ))'>
+                    <tr ng-repeat='player in (viewData.filteredArray = ($ctrl.match.data.included | playerFilter | filter: $ctrl.filterValue ))'>
 
                         <td>{{$index + 1}}</td>
                         <td>{{player.attributes.stats.name}}</td>
                         <td>{{player.attributes.stats.winPlace}}</td>
                         <td>{{player.attributes.stats.kills}}({{player.attributes.stats.headshotKills}}head)</td>
                         <td>{{player.attributes.stats.DBNOs}}</td>
-                        <td>{{player.attributes.stats.damageDealt | parseToIntFilter}} points</td>
+                        <td>{{player.attributes.stats.damageDealt | parseToIntFilter}} hp</td>
                         <td>{{player.attributes.stats.assists}}</td>
                         <td>{{player.attributes.stats.boosts}}boosts - {{player.attributes.stats.heals}}heals</td>
                         <td>{{player.attributes.stats.revives}} revives</td>
