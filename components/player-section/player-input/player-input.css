@@ -102,8 +102,9 @@
 }
 
 .player-search-user-button:active {
-    background-color: #1E90FF;
+    transform: scale(1.04) translateX(8px);
     letter-spacing: .1rem;
+    background-color: #10B2C6;
 }
 
 .player-select-section {
@@ -189,6 +190,76 @@
     margin: 4rem auto 7rem auto;
 }
 
+.player-input-name-section {
+    display: block;
+    position: relative;
+    width: 50%;
+    margin-bottom: 2rem;
+}
+
+.player-input-name-section label{
+    position: absolute;
+    left: 0;
+    /* font-size: 1.6rem; */
+    color: #333333;
+    display: block;
+    font-weight: 600;
+    margin-bottom: .5rem;
+    top: -1.5rem;
+    cursor: text;
+    font-size: 120%;
+    opacity: 1;
+    transition: all 0.2s;
+}
+
+
+.player-name-input {
+    font-family: 'Athiti', sans-serif;
+    font-size: inherit;
+    margin-bottom: .2rem;
+    font-size: 2rem;
+    height: 3rem;
+    font-weight: 600;
+    width: 100%;
+    color: #10b295;
+    border: none;
+    border-bottom: 2px solid;
+    background-color: inherit;
+
+    transition: letter-spacing .2s;
+}
+.player-input-name-section input::placeholder {
+    opacity: 1;
+    color: #10b295;
+}
+
+
+
+  .player-input-name-section input:placeholder-shown:not(:focus)::placeholder {
+    opacity: 0;
+  }
+  .player-input-name-section input:placeholder-shown:not(:focus) + * {
+    font-size: 2rem;
+    opacity: 1;
+    color: #10b295;
+    top: -.2rem;
+  }
+  .player-name-input.ng-valid.ng-not-empty.ng-dirty.ng-valid-parse.ng-touched {
+      border-color: #333333;
+  }
+
+  .player-input-name-section  .filter-input:focus::-webkit-input-placeholder {
+    color:#10b295;
+  }
+  .player-input-name-section input:focus {
+    /* outline: none;
+    letter-spacing: .1rem;
+    font-size: 2.2rem; */
+    color: #10b295;
+    outline: none;
+    border-color: #333333;
+  }
+  
 .filter-input {
     font-size: 2rem;
     height: 3rem;
@@ -287,65 +358,5 @@
 
 
 
-.player-input-name-section {
-    display: block;
-    position: relative;
-    width: 50%;
-    margin-bottom: 2rem;
-}
-
-.player-input-name-section label,
-.player-input-name-section > span {
-    position: absolute;
-    left: 0;
-    /* font-size: 1.6rem; */
-    color: #10b295;
-    display: block;
-    font-weight: 600;
-    margin-bottom: .5rem;
-    top: -1.5rem;
-    cursor: text;
-    font-size: 120%;
-    opacity: 1;
-    transition: all 0.2s;
-}
-
-
-.player-name-input {
-    font-size: inherit;
-    /* padding-top: 1em; */
-    margin-bottom: 2px;
-    font-size: 2rem;
-    height: 3rem;
-    width: 100%;
-    border: none;
-    border-bottom: 2px solid #10b295;
-    background-color: inherit;
-    color: #333333;
-    font-style: italic;
-    transition: letter-spacing .2s;
-}
-.player-input-name-section input::placeholder {
-    opacity: 1;
-    transition: all 0.2s;
-}
-
-
-  .player-input-name-section input:placeholder-shown:not(:focus)::placeholder {
-    opacity: 0;
-  }
-  .player-input-name-section input:placeholder-shown:not(:focus) + * {
-    font-size: 180%;
-    opacity: 0.5;
-    top: 0.2rem;
-  }
-  .player-input-name-section input:focus {
-    /* outline: none;
-    letter-spacing: .1rem;
-    font-size: 2.2rem; */
-    outline: none;
-    border-color: rgba(0, 0, 0, 0.5);
-  }
-  
   
 

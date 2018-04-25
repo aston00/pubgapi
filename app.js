@@ -1,5 +1,26 @@
-var app = angular.module('pubgApp', []);
+var app = angular.module('pubgApp', ['ui.router']);
 
+app.run(function ($browser) {
+    $browser.baseHref = function () { return "/" };
+    });
+    app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
+        function ($stateProvider, $urlRouterProvider, $locationProvider) {
+            
+            $locationProvider.html5Mode({
+                enabled: true,
+                requireBase: false
+              });
+            $urlRouterProvider.otherwise("/player");
+            $stateProvider
+                .state('home', {
+                    url: '/player',
+                    template: '<app-player-section></app-player-section>'
+                })
+
+            
+           
+        }
+    ]);
 
 // require('bootstrap');
 // require('./node_modules/bootstrap/dist/js/bootstrap');

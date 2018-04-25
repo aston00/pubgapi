@@ -2,10 +2,12 @@
 <html lang="en" ng-app="pubgApp">
 
 <head>
+        <!-- <base href="/player"> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PUBG-stats-tracker</title>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Athiti:200,400,600" rel="stylesheet">
@@ -17,10 +19,10 @@
 </head>
 
 <body>
-    <app-nav-bar></app-nav-bar>
+    <!-- <app-nav-bar></app-nav-bar>
     <app-main></app-main>
-    <app-player-section></app-player-section>
-    <!-- <app-welcome></app-welcome> -->
+    <app-player-section></app-player-section> -->
+    <div ui-view></div>
     
 </body>
 
