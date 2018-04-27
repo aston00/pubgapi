@@ -2,7 +2,10 @@
     padding-top: 3.2rem;
     padding-bottom: 3.5rem;
 }
-
+input:-webkit-autofill {
+    -webkit-box-shadow: inset 0 0 0 50px #fafafa;
+    -webkit-text-fill-color: #10b295 !important;
+}
 .container {
     width: 80%;
     margin: auto;
@@ -196,8 +199,14 @@
     width: 50%;
     margin-bottom: 2rem;
 }
+.filter-container {
+    display: block;
+    position: relative;
+    width: 30%;
+    margin-bottom: 8rem;
+}
 
-.player-input-name-section label{
+.player-input-name-section label, .filter-container label{
     position: absolute;
     left: 0;
     /* font-size: 1.6rem; */
@@ -213,7 +222,7 @@
 }
 
 
-.player-name-input {
+.player-name-input, .filter-input {
     font-family: 'Athiti', sans-serif;
     font-size: inherit;
     margin-bottom: .2rem;
@@ -228,30 +237,35 @@
 
     transition: letter-spacing .2s;
 }
-.player-input-name-section input::placeholder {
+.player-input-name-section input::placeholder,
+.filter-container input::placeholder {
     opacity: 1;
     color: #10b295;
 }
 
 
 
-  .player-input-name-section input:placeholder-shown:not(:focus)::placeholder {
+  .player-input-name-section input:placeholder-shown:not(:focus)::placeholder,
+  .filter-container input:placeholder-shown:not(:focus)::placeholder {
     opacity: 0;
   }
-  .player-input-name-section input:placeholder-shown:not(:focus) + * {
+  .player-input-name-section input:placeholder-shown:not(:focus) + *,
+  .filter-container input:placeholder-shown:not(:focus) + *  {
     font-size: 2rem;
     opacity: 1;
     color: #10b295;
     top: -.2rem;
   }
-  .player-name-input.ng-valid.ng-not-empty.ng-dirty.ng-valid-parse.ng-touched {
+  .player-name-input.ng-valid.ng-not-empty.ng-dirty.ng-valid-parse.ng-touched,
+  .filter-input.ng-valid.ng-not-empty.ng-dirty.ng-valid-parse.ng-touched {
       border-color: #333333;
   }
 
-  .player-input-name-section  .filter-input:focus::-webkit-input-placeholder {
+  /* .player-input-name-section  .filter-input:focus::-webkit-input-placeholder {
     color:#10b295;
-  }
-  .player-input-name-section input:focus {
+  } */
+  .player-input-name-section input:focus,
+  .filter-container input:focus {
     /* outline: none;
     letter-spacing: .1rem;
     font-size: 2.2rem; */
@@ -259,7 +273,7 @@
     outline: none;
     border-color: #333333;
   }
-  
+/*   
 .filter-input {
     font-size: 2rem;
     height: 3rem;
@@ -280,7 +294,7 @@
     outline: none;
     letter-spacing: .1rem;
     font-size: 2.2rem;
-}
+} */
 
 .player-table {
     width: 100%;
@@ -294,6 +308,7 @@
     padding: .3rem 0;
     color: #fafafa;
     background-color: #1E90FF;
+    cursor: pointer;
 }
 
 .player-table td,
@@ -332,17 +347,19 @@
 }
 
 .player-table-row th:nth-child(8) {
-    width: 15%;
-}
-
-.player-table-row th:nth-child(9) {
     width: 8%;
 }
 
-.player-table-row th:nth-child(10) {
-    width: 9%;
+.player-table-row th:nth-child(9) {
+    width: 7%;
 }
 
+.player-table-row th:nth-child(10) {
+    width: 8%;
+}
+.player-table-row th:nth-child(11) {
+    width: 9%;
+}
 .player-table tbody tr>td:nth-of-type(2) {
     font-weight: 600;
     padding-left: 1rem;

@@ -1,0 +1,23 @@
+.app-footer {
+    display: flex;
+    height: 20rem;
+    background-color: inherit;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-container {
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.footer-copyright {
+    font-size: 2.5rem;
+    letter-spacing: .2rem;
+    font-weight: 600;
+    color: #10b295;
+}

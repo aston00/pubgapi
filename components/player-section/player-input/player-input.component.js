@@ -9,10 +9,18 @@ angular.module('pubgApp')
                 RegionsService.allRegions().then(data => {
                     ctrl.regions = data;
                 })
-               
+                ctrl.sortProperty = "winPlace";
                 $scope.viewData = {};
-
+                ctrl.reversal = true;
                 
+            }
+            
+
+
+            ctrl.changeSortProperty = function(value, flow){
+                ctrl.sortProperty = value;
+                
+                ctrl.reversal = Boolean(flow);
             }
             
             ctrl.search = function(){
@@ -20,10 +28,7 @@ angular.module('pubgApp')
                     console.log(data.data.data[0]);
                     ctrl.matches = data.data.data[0].relationships.matches.data;
                     console.log(ctrl.matches);
-                    // MatchDataService.getMatchData(ctrl.matches[0].id).then(data => console.log(data.data));
-                    // ctrl.matches.forEach(item => {
-                    //     MatchDataService.getMatchData(item.id).then(data => console.log(data));
-                    // })
+                   
                 });
             }
 

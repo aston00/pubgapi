@@ -1,22 +1,22 @@
 var app = angular.module('pubgApp', ['ui.router']);
 
-app.run(function ($browser) {
-    $browser.baseHref = function () { return "/" };
-    });
+
+  
     app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
         function ($stateProvider, $urlRouterProvider, $locationProvider) {
             
-            $locationProvider.html5Mode({
-                enabled: true,
-                requireBase: false
-              });
-            $urlRouterProvider.otherwise("/player");
+         
+            $urlRouterProvider.otherwise("/");
             $stateProvider
                 .state('home', {
-                    url: '/player',
-                    template: '<app-player-section></app-player-section>'
+                    url: '/',
+                    template: '<app-player-input></app-player-input> '
                 })
-
+                // .state('match', {
+                //     url: '/match',
+                //     template: 
+                // })
+                // $locationProvider.html5Mode(true);
             
            
         }
@@ -46,5 +46,6 @@ require('./components/player-section/player-input/player-input.component');
 require('./components/player-form/player-form.component');
 require('./components/login/login');
 require('./components/welcome/welcome.component');
+require('./components/footer/footer.component');
 
 require('./main.css');

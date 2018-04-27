@@ -52,6 +52,7 @@
 
             <div class="filter-container" ng-if="$ctrl.match.data.included">
                 <input placeholder="Filter value here ..." id="filter-input" class="filter-input" type="text" ng-model="$ctrl.filterValue">
+                <label for="filter-input">Filter</label>
             </div>
 
             <table border="1" class="player-table" ng-if="$ctrl.match.data.included">
@@ -60,44 +61,34 @@
 
                         <th>#</th>
                         <th>Player</th>
-                        <th>Place</th>
-                        <th>Kills</th>
-                        <th>Knocked Times</th>
-                        <th>Damage Dealt</th>
-                        <th>Assists</th>
-                        <th>Healed</th>
-                        <th>Revives</th>
-                        <th>Longest Kill</th>
+                        <th ng-click="$ctrl.changeSortProperty('winPlace', $ctrl.reversal)">Place</th>
+                        <th ng-click="$ctrl.changeSortProperty('kills', $ctrl.reversal)">Kills</th>
+                        <th ng-click="$ctrl.changeSortProperty('DBNOs', $ctrl.reversal)">Knocked Times</th>
+                        <th ng-click="$ctrl.changeSortProperty('damageDealt', $ctrl.reversal)">Damage Dealt</th>
+                        <th ng-click="$ctrl.changeSortProperty('assists', $ctrl.reversal)">Assists</th>
+                        <th ng-click="$ctrl.changeSortProperty('heals', $ctrl.reversal)">Heals</th>
+                        <th ng-click="$ctrl.changeSortProperty('boosts', $ctrl.reversal)">Boosts</th>
+                        <th ng-click="$ctrl.changeSortProperty('revives', $ctrl.reversal)">Revives</th>
+                        <th ng-click="$ctrl.changeSortProperty('longestKill', $ctrl.reversal)">Longest Kill</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat='player in (viewData.filteredArray = ($ctrl.match.data.included | playerFilter | filter: $ctrl.filterValue ))'>
+                    <tr ng-repeat='player in (viewData.filteredArray = ($ctrl.match.data.included | playerFilter:$ctrl.sortProperty:$ctrl.reversal | filter: $ctrl.filterValue ))'>
 
                         <td>{{$index + 1}}</td>
                         <td>{{player.attributes.stats.name}}</td>
                         <td>{{player.attributes.stats.winPlace}}</td>
                         <td>{{player.attributes.stats.kills}}({{player.attributes.stats.headshotKills}}head)</td>
                         <td>{{player.attributes.stats.DBNOs}}</td>
-                        <td>{{player.attributes.stats.damageDealt | parseToIntFilter}} hp</td>
+                        <td>{{player.attributes.stats.damageDealt | parseToIntFilter}}hp</td>
                         <td>{{player.attributes.stats.assists}}</td>
-                        <td>{{player.attributes.stats.boosts}}boosts - {{player.attributes.stats.heals}}heals</td>
-                        <td>{{player.attributes.stats.revives}} revives</td>
+                        <td>{{player.attributes.stats.heals}}heals</td>
+                        <td>{{player.attributes.stats.boosts}}boosts</td>
+                        <td>{{player.attributes.stats.revives}}revives</td>
                         <td>{{player.attributes.stats.longestKill}}m</td>
                     </tr>
                 </tbody>
             </table>
-
-
-            <!-- <ul >
-                <li ng-repeat='player in $ctrl.match.data.included | playerFilter '>
-                    <span>{{player.attributes.stats.winPlace}}</span>
-                    <span>{{player.attributes.stats.name}}</span>
-                    <span>{{' Kills ' + player.attributes.stats.kills}}</span>
-                    <span>{{' Revived: ' + player.attributes.stats.DBNOs}}</span>
-                    <span>{{' Damage dealt: ' + player.attributes.stats.damageDealt}}</span>
-
-                </li>
-            </ul> -->
         </div>
     </div>
 </section>
