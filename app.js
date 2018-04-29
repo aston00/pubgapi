@@ -26,6 +26,7 @@ require('./filters/parseToInt.filter');
 require('./filters/mode.filter');
 require('./filters/matchType.filter');
 require('./filters/map.filter');
+require('./filters/playerName.filter');
 
 require('./components/player-section/player-section.component');
 require('./components/player-section/player-input/player-input.component');

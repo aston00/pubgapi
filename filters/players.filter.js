@@ -21,6 +21,7 @@ angular.module('pubgApp')
                
                 
             }) 
+            // console.log(itemsArray);
             return  itemsArray;
         }
     });

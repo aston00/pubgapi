@@ -28,6 +28,9 @@ angular.module('pubgApp')
                     ctrl.matches = data.data.data[0].relationships.matches.data;
                     // console.log(ctrl.matches);
                    
+                }).catch(error => {
+                    alert('Wrong name');
+                    console.log(error);
                 });
             }
 
@@ -36,7 +39,6 @@ angular.module('pubgApp')
                 // console.log(id);
                 MatchDataService.getMatchData(id, ctrl.region).then(data => {
                     ctrl.match = data;
-                    // console.log(data);
                     
                 })
                 
