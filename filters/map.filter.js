@@ -6,6 +6,9 @@ angular.module('pubgApp')
             }
             let splitted = item.split('_');
             splitted.pop();
+            if(splitted == "Desert"){
+                return "Miramar";
+            }
             return splitted.join('');
         }
     });
