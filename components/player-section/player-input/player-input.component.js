@@ -19,29 +19,25 @@ angular.module('pubgApp')
 
             ctrl.changeSortProperty = function(value, flow){
                 ctrl.sortProperty = value;
-                
                 ctrl.reversal = Boolean(flow);
             }
             
             ctrl.search = function(){
                 PlayerDataService.getPlayer(ctrl.searchPlayer, ctrl.region).then(data => {
-                    console.log(data.data.data[0]);
+                    // console.log(data.data.data[0]);
                     ctrl.matches = data.data.data[0].relationships.matches.data;
-                    console.log(ctrl.matches);
+                    // console.log(ctrl.matches);
                    
                 });
             }
 
             ctrl.getMatch = function(id){
-                debugger;
-                console.log(id);
+              
+                // console.log(id);
                 MatchDataService.getMatchData(id, ctrl.region).then(data => {
                     ctrl.match = data;
-                    console.log(data);
+                    // console.log(data);
                     
-                    // console.log('hellasddsadsadsaasdo', $scope.viewData);
-                    // console.log('hellaaaaaasdo', ctrl.viewData);
-                    // console.log('hello', $scope.filteredArray);
                 })
                 
             }
