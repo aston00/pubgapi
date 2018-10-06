@@ -1,20 +1,17 @@
 var app = angular.module('pubgApp', ['ui.router']);
 
 //TODO:: added error handlers
-  
-    app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
-        function ($stateProvider, $urlRouterProvider, $locationProvider) {
-            
-         
-            $urlRouterProvider.otherwise("/");
-            $stateProvider
-                .state('home', {
-                    url: '/',
-                    template: '<app-player-input></app-player-input> '
-                })
-           
-        }
-    ]);
+
+app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
+    function ($stateProvider, $urlRouterProvider, $locationProvider) {
+        $urlRouterProvider.otherwise("/");
+        $stateProvider
+            .state('home', {
+                url: '/',
+                template: '<app-player-input></app-player-input> '
+            })
+    }
+]);
 
 
 require('./services/match-data-service');

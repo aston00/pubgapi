@@ -1,9 +1,9 @@
 class PlayerDataService {
-    constructor($http){
+    constructor($http) {
         this.http = $http;
     }
 
-    getPlayer(name, region){
+    getPlayer(name, region) {
         return this.http({
             method: 'GET',
             url: `https://api.playbattlegrounds.com/shards/${region}/players?filter[playerNames]=${name}`,

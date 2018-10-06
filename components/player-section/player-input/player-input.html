@@ -45,7 +45,7 @@
                         <div>Match type: {{$ctrl.match.data.data.attributes.gameMode | matchTypeFilter}}</div>
                     </li>
                     <li class="match-info-playerCount">
-                        <div>Participants: {{viewData.filteredArray.length}}</div>
+                        <div>Participants: {{$ctrl.viewData.filteredArray.length}}</div>
                     </li>
                 </ul>
             </div>
@@ -73,7 +73,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat='player in (viewData.filteredArray = ($ctrl.match.data.included | playerFilter:$ctrl.sortProperty:$ctrl.reversal | playerNameFilter: $ctrl.filterValue ))'>
+                    <tr ng-repeat='player in ($ctrl.viewData.filteredArray = ($ctrl.match.data.included | playerFilter:$ctrl.sortProperty:$ctrl.reversal | playerNameFilter: $ctrl.filterValue ))'>
 
                         <td>{{$index + 1}}</td>
                         <td>{{player.attributes.stats.name}}</td>
